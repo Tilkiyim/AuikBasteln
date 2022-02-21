@@ -1181,9 +1181,18 @@ abstract class DatabaseBasisQuery extends DatabaseIndeinlQuery {
 	 */
 
 	public static List<Anhang> allActiveAnhangs() {
+		
+		String query;
 
-		String query = "FROM Anhang WHERE anh_gueltig_bis IS NULL " + 
-				"ORDER BY CAST (NULLIF(regexp_replace(anhang_id, '\\D', '', 'g'), '') as int) asc";
+		if(HibernateSessionFactory.getDBDialect() == "org.hibernate.dialect.PostgreSQLDialect") {
+			
+			query = "FROM Anhang WHERE anh_gueltig_bis IS NULL " + 
+			"ORDER BY CAST (NULLIF(regexp_replace(anhang_id, '\\D', '', 'g'), '') as int) asc";
+	
+		}else {
+			query = "FROM Anhang WHERE anh_gueltig_bis IS NULL " + 
+			"ORDER BY anhang_id";
+		}
 
 		return HibernateSessionFactory.currentSession().createQuery(query).list();
 	}
