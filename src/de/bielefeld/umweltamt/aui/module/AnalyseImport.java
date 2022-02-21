@@ -50,7 +50,7 @@ import de.bielefeld.umweltamt.aui.utils.AuikUtils;
 import de.bielefeld.umweltamt.aui.utils.tablemodelbase.ListTableModel;
 
 /**
- * Diese Klasse ist ein eigenst&auml;ndiges Modul. Es hat die Aufgabe, einen
+ * Diese Klasse ist ein eigenstaendiges Modul. Es hat die Aufgabe, einen
  * Import-Mechanismus bereitzustellen, mit dem sich Analyseergebnisse von
  * Probenahmen importieren lassen. Der Import gliedert sich in folgende Stufen:<br>
  * <ul>
